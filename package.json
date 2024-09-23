@@ -1,0 +1,20 @@
+{
+  "name": "cacheable-mono-repo",
+  "version": "1.0.0",
+  "description": "Cacheable Mono Repo",
+  "scripts": {
+    "test": "pnpm -r --workspace-concurrency 1 test",
+    "test:ci": "c8 --reporter=lcov pnpm -r --workspace-concurrency 1 test:ci",
+    "test:services:start": "docker compose up -d",
+    "test:services:stop": "docker compose down",
+    "website:build": "pnpm recursive --filter @cacheable/website run website:build",
+    "build": "pnpm recursive run build",
+    "clean": "pnpm recursive run clean"
+  },
+  "keywords": [],
+  "author": "Jared Wray <me@jaredwray.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "c8": "^10.1.2"
+  }
+}
